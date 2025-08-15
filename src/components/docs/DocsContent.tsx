@@ -10,32 +10,45 @@ import {
   Settings,
   Lightbulb,
   HelpCircle,
-  ArrowRight
+  ArrowRight,
+  Star,
+  Zap,
+  Shield
 } from "lucide-react";
+import { Breadcrumbs } from "./Breadcrumbs";
 
 interface DocsContentProps {
   activeSection: string;
+  onSectionChange: (section: string) => void;
 }
 
 const ContentSection = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-  <div className={`prose prose-slate max-w-none ${className}`}>
+  <div className={`prose prose-slate max-w-none animate-fade-in ${className}`}>
     {children}
   </div>
 );
 
-const FeatureCard = ({ icon: Icon, title, description }: { 
+const FeatureCard = ({ icon: Icon, title, description, featured = false }: { 
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
+  featured?: boolean;
 }) => (
-  <div className="p-6 bg-card border border-border-light rounded-lg hover:shadow-md transition-shadow">
+  <div className={`
+    group p-6 bg-gradient-card border border-border-light rounded-xl 
+    hover:shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-[1.02]
+    ${featured ? 'ring-2 ring-primary/20 bg-gradient-hero text-white' : ''}
+  `}>
     <div className="flex items-center gap-3 mb-3">
-      <div className="p-2 bg-primary/10 rounded-lg">
-        <Icon className="w-5 h-5 text-primary" />
+      <div className={`
+        p-2 rounded-lg transition-all duration-300 group-hover:scale-110
+        ${featured ? 'bg-white/20' : 'bg-primary/10'}
+      `}>
+        <Icon className={`w-5 h-5 ${featured ? 'text-white' : 'text-primary'}`} />
       </div>
-      <h4 className="font-semibold text-heading">{title}</h4>
+      <h4 className={`font-semibold ${featured ? 'text-white' : 'text-heading'}`}>{title}</h4>
     </div>
-    <p className="text-body text-sm">{description}</p>
+    <p className={`text-sm ${featured ? 'text-white/90' : 'text-body'}`}>{description}</p>
   </div>
 );
 
@@ -44,43 +57,60 @@ const StepItem = ({ number, title, description }: {
   title: string;
   description: string;
 }) => (
-  <div className="flex gap-4 p-4 bg-muted/50 rounded-lg">
-    <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm">
+  <div className="group flex gap-4 p-6 bg-gradient-subtle rounded-xl border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+    <div className="flex-shrink-0 w-10 h-10 bg-gradient-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
       {number}
     </div>
-    <div>
-      <h4 className="font-semibold text-heading mb-1">{title}</h4>
-      <p className="text-body text-sm">{description}</p>
+    <div className="flex-1">
+      <h4 className="font-semibold text-heading mb-2 group-hover:text-primary transition-colors duration-200">{title}</h4>
+      <p className="text-body text-sm leading-relaxed">{description}</p>
     </div>
   </div>
 );
 
 const InfoBox = ({ type = "info", children }: { type?: "info" | "warning" | "tip"; children: ReactNode }) => {
   const styles = {
-    info: "bg-blue-50 border-blue-200 text-blue-800",
-    warning: "bg-yellow-50 border-yellow-200 text-yellow-800",
-    tip: "bg-green-50 border-green-200 text-green-800"
+    info: "bg-blue-50 border-blue-200 text-blue-800 shadow-blue-100/50",
+    warning: "bg-yellow-50 border-yellow-200 text-yellow-800 shadow-yellow-100/50",
+    tip: "bg-green-50 border-green-200 text-green-800 shadow-green-100/50"
   };
 
   const icons = {
     info: HelpCircle,
-    warning: HelpCircle,
+    warning: Shield,
     tip: Lightbulb
   };
 
   const Icon = icons[type];
 
   return (
-    <div className={`p-4 border rounded-lg ${styles[type]}`}>
+    <div className={`p-5 border rounded-xl shadow-md ${styles[type]} animate-fade-in-scale`}>
       <div className="flex items-start gap-3">
-        <Icon className="w-5 h-5 flex-shrink-0 mt-0.5" />
-        <div className="text-sm">{children}</div>
+        <div className="p-1 rounded-full bg-white/50">
+          <Icon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+        </div>
+        <div className="text-sm font-medium leading-relaxed">{children}</div>
       </div>
     </div>
   );
 };
 
-export const DocsContent = ({ activeSection }: DocsContentProps) => {
+const getBreadcrumbItems = (activeSection: string) => {
+  const breadcrumbMap: Record<string, Array<{ label: string; id: string }>> = {
+    "agency-overview": [{ label: "Agency Space", id: "agency-space" }],
+    "creating-subaccount": [{ label: "Agency Space", id: "agency-space" }],
+    "managing-users": [{ label: "Agency Space", id: "agency-space" }],
+    "subaccount-overview": [{ label: "Subaccount Space", id: "subaccount-space" }],
+    "main": [{ label: "Subaccount Space", id: "subaccount-space" }],
+    "dashboard": [{ label: "Subaccount Space", id: "subaccount-space" }],
+    // Add more mappings as needed
+  };
+
+  return breadcrumbMap[activeSection] || [];
+};
+
+export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps) => {
+  const breadcrumbItems = getBreadcrumbItems(activeSection);
   const renderContent = () => {
     switch (activeSection) {
       case "overview":
@@ -109,21 +139,29 @@ export const DocsContent = ({ activeSection }: DocsContentProps) => {
 
             <h2>What You'll Learn</h2>
             <div className="grid gap-4 mb-8">
-              <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Creating and managing subaccounts for different businesses or branches</span>
+              <div className="group flex items-center gap-3 p-5 bg-gradient-subtle rounded-lg border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+                <div className="p-2 bg-green-100 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="font-medium">Creating and managing subaccounts for different businesses or branches</span>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Managing agency users and assigning appropriate permissions</span>
+              <div className="group flex items-center gap-3 p-5 bg-gradient-subtle rounded-lg border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+                <div className="p-2 bg-green-100 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="font-medium">Managing agency users and assigning appropriate permissions</span>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Handling daily operations: conversations, campaigns, and lead management</span>
+              <div className="group flex items-center gap-3 p-5 bg-gradient-subtle rounded-lg border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+                <div className="p-2 bg-green-100 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="font-medium">Handling daily operations: conversations, campaigns, and lead management</span>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Tips and best practices to maximize your CRM efficiency</span>
+              <div className="group flex items-center gap-3 p-5 bg-gradient-subtle rounded-lg border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+                <div className="p-2 bg-green-100 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <span className="font-medium">Tips and best practices to maximize your CRM efficiency</span>
               </div>
             </div>
 
@@ -399,7 +437,18 @@ export const DocsContent = ({ activeSection }: DocsContentProps) => {
   return (
     <div className="flex-1 overflow-y-auto">
       <div className="max-w-4xl mx-auto p-8">
-        {renderContent()}
+        {breadcrumbItems.length > 0 && (
+          <div className="mb-6 pb-4 border-b border-border-light animate-fade-in">
+            <Breadcrumbs 
+              items={breadcrumbItems} 
+              onNavigate={onSectionChange}
+            />
+          </div>
+        )}
+        
+        <div className="animate-fade-in-scale">
+          {renderContent()}
+        </div>
       </div>
     </div>
   );

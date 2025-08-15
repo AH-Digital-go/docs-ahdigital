@@ -111,29 +111,44 @@ export const DocsSidebar = ({ activeSection, onSectionChange }: DocsSidebarProps
             }
           }}
           className={cn(
-            "w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-all duration-200",
-            "hover:bg-sidebar-hover",
+            "w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-lg transition-all duration-300 group",
+            "hover:bg-sidebar-hover hover:shadow-sm",
             level === 0 ? "font-medium" : "font-normal text-sm",
             level > 0 && "ml-6",
-            isActive && "bg-sidebar-active text-sidebar-active-foreground"
+            isActive && "bg-sidebar-active text-sidebar-active-foreground shadow-md transform scale-[1.02]"
           )}
         >
-          {Icon && level === 0 && <Icon className="w-4 h-4 flex-shrink-0" />}
+          {Icon && level === 0 && (
+            <Icon className={cn(
+              "w-4 h-4 flex-shrink-0 transition-all duration-300",
+              isActive ? "text-sidebar-active-foreground" : "text-muted-foreground group-hover:text-primary",
+              "group-hover:scale-110"
+            )} />
+          )}
           
-          <span className="flex-1 truncate">{item.title}</span>
+          <span className="flex-1 truncate transition-all duration-200">{item.title}</span>
           
           {hasChildren && (
-            isExpanded ? (
-              <ChevronDown className="w-4 h-4 flex-shrink-0" />
-            ) : (
+            <div className={cn(
+              "transition-all duration-300 ease-spring",
+              isExpanded ? "rotate-90" : "rotate-0"
+            )}>
               <ChevronRight className="w-4 h-4 flex-shrink-0" />
-            )
+            </div>
           )}
         </button>
 
         {hasChildren && isExpanded && (
-          <div className="mt-1 space-y-1">
-            {item.children!.map((child) => renderNavItem(child, level + 1))}
+          <div className="mt-1 space-y-1 animate-fade-in">
+            {item.children!.map((child, index) => (
+              <div 
+                key={child.id}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                {renderNavItem(child, level + 1)}
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -143,11 +158,18 @@ export const DocsSidebar = ({ activeSection, onSectionChange }: DocsSidebarProps
   const filteredItems = filterItems(navigationItems, searchQuery);
 
   return (
-    <div className="w-80 h-screen bg-sidebar border-r border-border-light flex flex-col">
+    <div className="w-80 h-full lg:h-screen bg-sidebar border-r border-border-light flex flex-col shadow-lg lg:shadow-none">
       {/* Header */}
-      <div className="p-6 border-b border-border-light">
-        <h2 className="text-xl font-bold text-heading mb-1">AHD Documentation</h2>
-        <p className="text-sm text-caption">CRM SaaS Platform Guide</p>
+      <div className="p-6 border-b border-border-light bg-gradient-subtle">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="p-2 bg-gradient-primary rounded-lg shadow-md">
+            <Book className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-heading">AHD Documentation</h2>
+            <p className="text-sm text-caption">CRM SaaS Platform Guide</p>
+          </div>
+        </div>
       </div>
 
       {/* Search */}
