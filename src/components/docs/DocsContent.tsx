@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { 
   CheckCircle, 
   Users, 
@@ -13,11 +13,19 @@ import {
   ArrowRight,
   Star,
   Zap,
-  Shield
+  Shield,
+   
 } from "lucide-react";
 import { Breadcrumbs } from "./Breadcrumbs";
 import Markdown from 'react-markdown';
 import data from "../../../data.json"; // <- JSON import
+import  TableOfContents from "./TableOfContents"; // Assure-toi d'importer le composant
+import  DocsChat  from "./DocsChat";
+
+
+const headingToId = (text: string) =>
+  text.replace(/\s+/g, '-').toLowerCase();
+
 
 
 interface DocsContentProps {
@@ -37,6 +45,7 @@ const FeatureCard = ({ icon: Icon, title, description, featured = false }: {
   description: string;
   featured?: boolean;
 }) => (
+  
   <div className={`
     group p-6 bg-gradient-card border border-border-light rounded-xl 
     hover:shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-[1.02]
@@ -49,9 +58,9 @@ const FeatureCard = ({ icon: Icon, title, description, featured = false }: {
       `}>
         <Icon className={`w-5 h-5 ${featured ? 'text-white' : 'text-primary'}`} />
       </div>
-      <h4 className={`font-semibold ${featured ? 'text-white' : 'text-heading'}`}>{title}</h4>
+      <h4 className={`font-semibold ${featured ? 'text-white' : 'text-heading'}`}><Markdown>{title}</Markdown></h4>
     </div>
-    <p className={`text-sm ${featured ? 'text-white/90' : 'text-body'}`}>{description}</p>
+    <div className={`text-sm ${featured ? 'text-white/90' : 'text-body'}`}><Markdown>{description}</Markdown></div>
   </div>
 );
 
@@ -103,10 +112,10 @@ const navigation = data.navigation;
 
 const getBreadcrumbItems = (activeSection: string) => {
   for (const nav of navigation) {
-    if (nav.children) {
+    if (nav.children ) {
       for (const child of nav.children) {
         if (child.id === activeSection) {
-          return [{ label: nav.title, id: nav.id }];
+          return [{ label: [nav.title, child.title], id: nav.id }];
         }
       }
     }
@@ -116,9 +125,11 @@ const getBreadcrumbItems = (activeSection: string) => {
 
 export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps) => {
   const breadcrumbItems = getBreadcrumbItems(activeSection);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const renderContent = () => {
-    let section: any = null;
+    let section: add = null;
     outer: for (const nav of navigation) {
       if (nav.id === activeSection) {
         section = nav;
@@ -190,7 +201,29 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
      
     `}</style>
           <h1>{section.title}</h1>
-          <Markdown>
+          <TableOfContents markdown={section.content} />
+          <Markdown
+            components={{
+              h1: ({ node, ...props }) => (
+                <h1 id={headingToId(String(props.children))} {...props} />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2 id={headingToId(String(props.children))} {...props} />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3 id={headingToId(String(props.children))} {...props} />
+              ),
+              h4: ({ node, ...props }) => (
+                <h4 id={headingToId(String(props.children))} {...props} />
+              ),
+              h5: ({ node, ...props }) => (
+                <h5 id={headingToId(String(props.children))} {...props} />
+              ),
+              h6: ({ node, ...props }) => (
+                <h6 id={headingToId(String(props.children))} {...props} />
+              ),
+            }}
+          >
             {section.content}
           </Markdown>
         </ContentSection>
@@ -199,7 +232,7 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
   };
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto ">
       <div className="max-w-4xl mx-auto p-8">
         {breadcrumbItems.length > 0 && (
           <div className="mb-6 pb-4 border-b border-border-light animate-fade-in">
@@ -213,6 +246,28 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
         <div className="animate-fade-in-scale">
           {renderContent()}
         </div>
+        <button
+          className="fixed bottom-8 right-8 z-40 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+          onClick={() => setIsChatOpen(true)}
+        >
+          Ouvrir le chat
+        </button>
+        {/* Modal du chat */}
+        {isChatOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 ">
+            <div className="relative "
+            style={{ height: 720, maxHeight: 720, maxWidth: '100%'}}>
+              <DocsChat />
+              <button
+                className="absolute top-2 right-2 bg-red-500 text-white rounded-full px-2 py-1"
+                onClick={() => setIsChatOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+      
       </div>
     </div>
   );

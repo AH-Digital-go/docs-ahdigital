@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 export const DocsLayout = () => {
   const [activeSection, setActiveSection] = useState("overview");
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isSidebarMini, setIsSidebarMini] = useState(false);
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
@@ -23,12 +24,12 @@ export const DocsLayout = () => {
       
       <div className="flex h-screen lg:h-screen">
         {/* Mobile Overlay */}
-        {isMobileSidebarOpen && (
+        {/* {isMobileSidebarOpen && (
           <div 
             className="fixed inset-0 bg-black/50 z-40 lg:hidden animate-fade-in"
             onClick={() => setIsMobileSidebarOpen(false)}
           />
-        )}
+        )} */}
         
         {/* Sidebar */}
         <div className={cn(
@@ -37,7 +38,8 @@ export const DocsLayout = () => {
         )}>
           <DocsSidebar 
             activeSection={activeSection} 
-            onSectionChange={handleSectionChange} 
+            onSectionChange={handleSectionChange}
+
           />
         </div>
 
