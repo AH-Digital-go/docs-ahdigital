@@ -1,14 +1,24 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { 
   HelpCircle,
   Shield,
   Lightbulb,
   ArrowRight,
-  Star
+  Star,
+  Zap,
+  Shield,
 } from "lucide-react";
 import { Breadcrumbs } from "./Breadcrumbs";
 import Markdown from 'react-markdown';
-import data from "../../../data.json"; // <- matches your MVP JSON
+import data from "../../../data.json"; // <- JSON import
+import  TableOfContents from "./TableOfContents"; // Assure-toi d'importer le composant
+import  DocsChat  from "./DocsChat";
+
+
+const headingToId = (text: string) =>
+  text.replace(/\s+/g, '-').toLowerCase();
+
+
 
 
 interface DocsContentProps {
@@ -27,14 +37,21 @@ const FeatureCard = ({ icon: Icon, title, description }: {
   title: string;
   description: string;
 }) => (
-  <div className="group p-6 bg-gradient-card border border-border-light rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+
+  <div className={`
+    group p-6 bg-gradient-card border border-border-light rounded-xl 
+    hover:shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-[1.02]
+    ${featured ? 'ring-2 ring-primary/20 bg-gradient-hero text-white' : ''}
+  `}>
     <div className="flex items-center gap-3 mb-3">
       <div className="p-2 rounded-lg bg-primary/10">
         <Icon className="w-5 h-5 text-primary" />
       </div>
+
       <h4 className="font-semibold text-heading">{title}</h4>
     </div>
     <p className="text-sm text-body">{description}</p>
+
   </div>
 );
 
@@ -91,6 +108,7 @@ const getBreadcrumbItems = (activeSection: string) => {
 
 export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps) => {
   const breadcrumbItems = getBreadcrumbItems(activeSection);
+
   const section: any = sections.find((s: any) => s.id === activeSection);
 
   const renderContent = () => {
@@ -165,10 +183,11 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
         )}
       </ContentSection>
     );
+
   };
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto ">
       <div className="max-w-4xl mx-auto p-8">
         {breadcrumbItems.length > 0 && (
           <div className="mb-6 pb-4 border-b border-border-light animate-fade-in">
@@ -181,6 +200,28 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
         <div className="animate-fade-in-scale">
           {renderContent()}
         </div>
+        <button
+          className="fixed bottom-8 right-8 z-40 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+          onClick={() => setIsChatOpen(true)}
+        >
+          Ouvrir le chat
+        </button>
+        {/* Modal du chat */}
+        {isChatOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 ">
+            <div className="relative "
+            style={{ height: 720, maxHeight: 720, maxWidth: '100%'}}>
+              <DocsChat />
+              <button
+                className="absolute top-2 right-2 bg-red-500 text-white rounded-full px-2 py-1"
+                onClick={() => setIsChatOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+      
       </div>
     </div>
   );
