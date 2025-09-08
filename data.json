@@ -1,122 +1,443 @@
 {
-  "navigation": [
+  "title": "📘 How to Use AH Digital",
+  "subtitle": "A step-by-step guide for agency owners and team members.",
+  "sections": [
     {
-      "id": "overview",
-      "title": "Overview",
-      "icon": "Book",
-      "content": "Welcome to the documentation! This guide will walk you through the platform step by step."
-    },
-    {
-      "id": "agency-space",
-      "title": "Agency Space",
-      "icon": "Building2",
-      "children": [
-        { 
-          "id": "agency-overview", 
-          "title": "Overview",
-          "content": "The agency space is where you manage your overall business operations, users, and client accounts."
+      "id": "create-account",
+      "title": "🔑 Create an Account (Agency Owner)",
+      "steps": [
+        {
+          "text": "Go to http://localhost:3000/register",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468412/1_ocwxrd.png"
         },
-        { 
-          "id": "creating-subaccount", 
-          "title": "Creating a Subaccount",
-          "content": "To create a subaccount, go to your agency dashboard and click 'New Subaccount'. Fill in business details, owner info, and preferences. Subaccounts act as workspaces for different clients." 
+        {
+          "text": "Enter your name, email, and password.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/2_oqjzuz.png"
         },
-        { 
-          "id": "managing-users", 
-          "title": "Managing Agency Users",
-          "content": "You can invite team members to your agency, assign them roles (Admin, User), and control permissions for accessing modules."
+        {
+          "text": "Fill out details (Business name, Business email, Country & Timezone, Language).",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468412/3_sibw6d.png"
+        },
+        {
+          "text": "Your Agency Workspace is now created.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468412/4_s7pxst.png"
         }
       ]
     },
     {
-      "id": "subaccount-space",
-      "title": "Subaccount Space",
-      "icon": "Users",
-      "children": [
+      "id": "subaccount",
+      "title": "📋 Create a Subaccount",
+      "description": "A subaccount is an isolated workspace dedicated to a single client or project.",
+      "features": [
+        "Funnel Builder",
+        "Campaigns",
+        "Conversations",
+        "Analytics",
+        "Reputation Management"
+      ],
+      "benefits": [
+        "Keep client data separate and secure",
+        "Dedicated environment for campaigns and assets",
+        "Easily switch between clients",
+        "Scale by managing multiple businesses"
+      ],
+      "examples": [
+        "Client A (Gym) → gym funnels, landing pages, email campaigns",
+        "Client B (Restaurant) → reservation campaigns, review requests, promo offers"
+      ],
+      "steps": [
         {
-            "id": "subaccount-overview",
-            "title": "Overview",
-            "content": "\n\n ---\n\n## What is a Subaccount? \n\n A **subaccount** is an isolated workspace dedicated to a single client or project.\nIt helps keep data, campaigns, and communications fully separated from other clients, ensuring privacy and better organization.\n\n --- \n\n \n\n### Key Features\n\n- **Funnel Builder**: Create and manage sales funnels tailored for the client.\n- **Campaigns**: Automate emails, SMS, and workflows for lead nurturing.\n- **Conversations**: Centralize all client communications (email, SMS, WhatsApp, etc.) in one place.\n- **Analytics**: Track performance with dashboards and reports.\n- **Reputation Management**: Monitor and improve reviews across platforms.\n\n--- \n\n### Why Use Subaccounts?\n\n- Keep each client’s data **separate and secure**.\n- Provide a **dedicated environment** for campaigns and assets.\n- Easily **switch between clients** without mixing up resources.\n- Scale your agency by managing multiple businesses from one platform.\n\n---\n\n### Quick Example\n\nImagine you’re running an agency with 10 different clients:\n- **Client A** runs a gym → their subaccount includes gym-specific funnels, landing pages, and email campaigns.\n- **Client B** owns a restaurant → their subaccount manages reservation campaigns, review requests, and promo offers.\n\nEach client works in **their own sandbox**, while you (the agency) can monitor and manage them all centrally."
+          "text": "Go to Subaccounts in the sidebar.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/5_zxwgqd.png"
         },
         {
-        "id": "conversations",
-        "title": "Conversations",
-        "content": "\n\nThe **Conversations** module provides a unified inbox where all client communications come together. Whether it’s email, SMS, WhatsApp, or Facebook messages, everything is centralized so you never lose track of important interactions.\n\n---\n\n### What You Can Do\n\n- **Unified Inbox**: View and respond to messages from multiple channels in one place.\n- **Multi-Channel Support**: Handle emails, SMS, WhatsApp, Facebook Messenger, and more without switching platforms.\n- **Conversation History**: Access a complete log of past communications with each client.\n- **Team Collaboration**: Assign conversations to team members and add internal notes.\n- **Automated Responses**: Use templates or workflows to quickly reply to common questions.\n\n---\n\n### Benefits\n\n- **Improved Response Time**: Manage all channels efficiently without missing messages.\n- **Personalized Communication**: See full history to provide context-aware replies.\n- **Centralized Workflow**: Eliminate the need to juggle between apps or inboxes.\n- **Stronger Client Relationships**: Stay consistent and professional across every touchpoint.\n\n---\n\n### Example Usage\n\n- A sales rep checks the **unified inbox** to respond to a lead who first emailed, then followed up via WhatsApp.\n- An agency manager assigns a **Facebook Messenger inquiry** to the right team member.\n- A support agent reviews the **full conversation history** before answering a client’s new question.\n\nWith the **Conversations module**, all client communications are organized, tracked, and easily accessible, ensuring that nothing falls through the cracks."
+          "text": "Fill in all account details.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/6_sffvtg.png"
         },
         {
-        "id": "calendars",
-        "title": "Calendars",
-        "content": "\n\nThe **Calendars** module helps you manage appointments, bookings, and schedules in one centralized place. It simplifies time management for both you and your clients while integrating seamlessly with popular tools like Google Calendar.\n\n---\n\n### What You Can Do\n\n- **Schedule Appointments**: Allow clients to book meetings, calls, or sessions directly through your calendar.\n- **Automated Reminders**: Send confirmation and reminder notifications via email or SMS to reduce no-shows.\n- **Team Scheduling**: Assign appointments to different team members and manage availability.\n- **Sync with External Calendars**: Keep your schedule aligned by connecting Google Calendar, Outlook, or other tools.\n- **Custom Booking Links**: Share unique booking pages for services, events, or personal availability.\n\n---\n\n### Benefits\n\n- **Streamlined Scheduling**: Eliminate back-and-forth messaging when arranging appointments.\n- **Improved Client Experience**: Clients can easily see available times and book instantly.\n- **Time Optimization**: Block off unavailable times, set working hours, and avoid conflicts.\n- **Multi-Calendar Management**: Manage multiple calendars across subaccounts or team members from one place.\n\n---\n\n### Example Usage\n\n- A consultant creates a **booking link** that lets prospects schedule free strategy calls.\n- A fitness trainer manages **class schedules and personal training sessions**, with automatic reminders to clients.\n- An agency syncs its team members’ calendars with **Google Calendar** so everyone stays on the same page.\n\nThe **Calendars module** ensures that your time and your clients’ time are managed effectively, reducing friction and helping you stay organized."
+          "text": "Now you can see your subaccounts on the sidebar. Switch as agency owner.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/7_u7bwcw.png"
         },
         {
-        "id": "clients",
-        "title": "Clients",
-        "content": "\n\nThe **Clients** module is where all customer and lead information is organized. It serves as a central database that makes it easy to manage relationships, track interactions, and keep detailed records for every individual or business you work with.\n\n---\n\n### What You Can Do\n\n- **Store Client Profiles**: Keep essential details such as name, email, phone number, company, and role.\n- **Add Notes**: Document important information from calls, meetings, or personal preferences.\n- **Track Activity**: See a timeline of client interactions, including emails, SMS, bookings, and campaign engagement.\n- **Segment and Filter**: Group clients based on tags, industries, or behaviors for targeted communication.\n- **Integrate with Campaigns**: Automatically sync clients into email, SMS, or workflow campaigns.\n\n---\n\n### Benefits\n\n- **Centralized Information**: All client data is in one accessible location.\n- **Better Communication**: Personalized interactions based on history and notes.\n- **Increased Productivity**: Quickly access records without switching tools.\n- **Data-Driven Decisions**: Understand client engagement through activity logs and analytics.\n\n---\n\n### Example Usage\n\n- An agency onboarding a new client can add their **business details, contacts, and notes** into the system immediately.\n- A sales team can view a **client’s full communication history** before making a call, ensuring conversations are relevant and informed.\n- A marketing manager can filter clients by **location or interest** to launch a targeted campaign.\n\nWith the **Clients module**, every interaction is documented and accessible, making it easier to build lasting, informed relationships."
-        },
-        {
-        "id": "leads",
-        "title": "Leads",
-        "content": "\n\nThe **Leads** module is designed to capture, organize, and manage potential clients from multiple sources. Leads can come from forms, campaigns, landing pages, or even manual imports, giving you a single place to track and nurture new opportunities.\n\n---\n\n### What You Can Do\n\n- **Capture Leads**: Collect information through forms, landing pages, campaigns, or integrations.\n- **Import Data**: Upload leads from external lists or CRM systems.\n- **Lead Profiles**: Store details such as name, email, phone, source, and tags.\n- **Activity Tracking**: Monitor interactions like campaign engagement, form submissions, or appointments.\n- **Segmentation**: Organize leads by tags, interests, or behaviors for targeted follow-ups.\n- **Conversion Management**: Move leads through pipelines or workflows as they progress.\n\n---\n\n### Benefits\n\n- **Centralized Lead Database**: Keep every prospect organized in one system.\n- **Improved Follow-Ups**: Never miss a touchpoint thanks to detailed activity logs.\n- **Smarter Targeting**: Segment leads for personalized campaigns and higher conversion rates.\n- **Seamless Growth**: Easily scale by importing or capturing leads from multiple sources.\n\n---\n\n### Example Usage\n\n- A marketing campaign drives traffic to a **landing page form**, automatically adding new leads to the database.\n- A sales manager imports a **CSV file of prospects** and tags them by region for targeted outreach.\n- A business tracks a lead’s **journey from first ad click to booked appointment**, ensuring proper follow-up.\n\nThe **Leads module** ensures that every potential client is captured, organized, and nurtured effectively, helping you grow your business pipeline."
-        },
-        {
-        "id": "forms",
-        "title": "Forms",
-        "content": "\n\nThe **Forms** module allows you to build and customize forms for capturing information, qualifying leads, and automating follow-up actions. Forms can be embedded on landing pages, websites, or shared via direct links, making it easy to gather data from prospects and clients.\n\n---\n\n### What You Can Do\n\n- **Custom Form Builder**: Design forms with text fields, dropdowns, checkboxes, and other components.\n- **Lead Scoring**: Assign values to form responses to prioritize high-quality leads.\n- **Workflow Triggers**: Automatically launch workflows, campaigns, or notifications when a form is submitted.\n- **Conditional Logic**: Show or hide fields based on previous answers for a personalized experience.\n- **Data Management**: Store submissions directly in the Leads module and link them to client records.\n- **Branding Options**: Customize design, styling, and branding to match your client’s identity.\n\n---\n\n### Benefits\n\n- **Seamless Data Capture**: Collect information in a structured, automated way.\n- **Faster Response Times**: Instantly trigger follow-ups or alerts when a new form is submitted.\n- **Improved Lead Qualification**: Score and prioritize leads based on their answers.\n- **Consistent Branding**: Keep forms aligned with the look and feel of client websites or campaigns.\n\n---\n\n### Example Usage\n\n- A gym creates a **membership inquiry form** that automatically adds leads to the sales pipeline and assigns follow-up tasks.\n- An agency designs a **survey form** that segments leads into different campaigns based on their responses.\n- A service provider builds an **appointment request form** that notifies the team and syncs with the Calendars module.\n\nWith the **Forms module**, you can streamline data collection, qualify leads effectively, and ensure that every response triggers the right next step."
-        },
-        {
-        "id": "campaigns",
-        "title": "Campaigns",
-        "content": "\n\nThe **Campaigns** module enables you to design, launch, and manage marketing campaigns across email and SMS. With scheduling, automation, and personalization, you can reach the right audience at the right time and measure the results effectively.\n\n---\n\n### What You Can Do\n\n- **Campaign Composer**: Create professional email and SMS campaigns with customizable templates.\n- **Scheduling**: Plan campaigns in advance and send messages at the best time for your audience.\n- **Automation**: Set up drip campaigns, follow-ups, and conditional workflows based on lead behavior.\n- **Audience Segmentation**: Target specific groups of leads or clients based on tags, demographics, or activity.\n- **A/B Testing**: Compare subject lines, content, or sending times to optimize performance.\n- **Analytics**: Track open rates, click rates, replies, and conversions in real time.\n\n---\n\n### Benefits\n\n- **Multi-Channel Outreach**: Engage prospects through both email and SMS for better coverage.\n- **Time Efficiency**: Automate repetitive tasks and let the system handle follow-ups.\n- **Data-Driven Improvements**: Use analytics and A/B tests to continuously refine messaging.\n- **Scalable Growth**: Run multiple campaigns simultaneously across different clients or subaccounts.\n\n---\n\n### Example Usage\n\n- A real estate agency launches an **email campaign** showcasing new property listings, with links to book viewings.\n- A fitness trainer runs an **SMS campaign** to remind members about an upcoming class and offer a limited-time discount.\n- An e-commerce business sets up an **automated drip campaign** that sends a welcome email, a follow-up product recommendation, and a cart recovery message if no purchase is made.\n\nThe **Campaigns module** gives you the tools to run targeted, automated, and measurable marketing campaigns that drive engagement and conversions."
-        },        
-        {
-        "id": "facebook-ads",
-        "title": "Facebook Ads",
-        "content": "\n\nThe **Facebook Ads** module integrates directly with Facebook Ads Manager, allowing you to create, manage, and track advertising campaigns without leaving the platform. This helps you generate leads, increase brand awareness, and measure return on investment in real time.\n\n---\n\n### What You Can Do\n\n- **Ad Campaign Management**: Launch and monitor campaigns directly from your workspace.\n- **Audience Targeting**: Define custom audiences using demographics, interests, and behaviors.\n- **Ad Creative Control**: Upload images, videos, and copy that match your brand’s message.\n- **Budget & Scheduling**: Set daily or lifetime budgets and control when ads are delivered.\n- **Performance Tracking**: Monitor impressions, clicks, conversions, and cost per acquisition.\n- **Lead Sync**: Automatically push Facebook leads into the Leads module for follow-up.\n\n---\n\n### Benefits\n\n- **Centralized Advertising**: Manage ads alongside funnels, campaigns, and client data.\n- **Smarter Spending**: Optimize ad spend based on performance metrics.\n- **Faster Follow-Up**: Capture leads instantly and trigger workflows or campaigns.\n- **Scalable Growth**: Run ads for multiple subaccounts or clients from one system.\n\n---\n\n### Example Usage\n\n- An agency sets up a **lead generation ad campaign** on Facebook, with all new leads automatically added to the CRM.\n- A local restaurant runs a **promotion campaign** targeting nearby residents, with results tracked in real time.\n- A coach launches a **video ad campaign** and monitors conversions, adjusting budget based on performance.\n\nThe **Facebook Ads module** helps you connect paid advertising directly with your CRM, making it easier to capture leads, optimize campaigns, and prove ROI."
-        },
-        {
-        "id": "emails",
-        "title": "Emails",
-        "content": "\n\nThe **Emails** module allows you to compose, send, and track professional emails directly within the platform. With support for templates, personalization, and analytics, you can manage one-to-one conversations as well as bulk outreach with ease.\n\n---\n\n### What You Can Do\n\n- **Email Composer**: Draft emails with a built-in editor that supports text, images, and links.\n- **Templates**: Save reusable templates for newsletters, follow-ups, or outreach campaigns.\n- **Personalization**: Insert dynamic fields such as client names, companies, or custom attributes.\n- **Bulk Sending**: Send emails to groups of leads or clients at once while keeping personalization intact.\n- **Tracking & Analytics**: Monitor open rates, click-through rates, replies, and bounce reports.\n- **Automation Integration**: Trigger emails as part of workflows, campaigns, or form submissions.\n\n---\n\n### Benefits\n\n- **Consistent Messaging**: Ensure brand consistency with ready-to-use templates.\n- **Efficiency**: Save time by automating repetitive communications.\n- **Better Engagement**: Personalize messages to improve open and response rates.\n- **Data-Driven Strategy**: Use tracking insights to refine future messaging.\n\n---\n\n### Example Usage\n\n- A sales rep sends a **personalized proposal email** using a pre-built template and tracks when the client opens it.\n- A marketing team sets up a **newsletter campaign** to keep leads updated on new offers.\n- An agency uses **automated follow-up emails** triggered after a form submission to nurture prospects.\n\nThe **Emails module** makes it easy to manage communication at scale, keeping messages professional, timely, and measurable."
-        },
-        {
-        "id": "team-chat",
-        "title": "Team Chat",
-        "content": "\n\nThe **Team Chat** module provides an internal messaging space for your team members within a subaccount. It keeps collaboration seamless and ensures that important discussions stay connected to the client workspace.\n\n---\n\n### What You Can Do\n\n- **Direct Messaging**: Send private one-to-one messages between team members.\n- **Group Chats**: Create chat rooms for projects, departments, or campaigns.\n- **Message History**: Keep a full record of past conversations for easy reference.\n- **File Sharing**: Upload and share files, links, or documents directly in the chat.\n- **Mentions & Notifications**: Tag team members to get their attention quickly.\n- **Integration with Workflows**: Link chat discussions with tasks, clients, or campaigns.\n\n---\n\n### Benefits\n\n- **Centralized Communication**: Keep all internal discussions in the same platform as client work.\n- **Faster Collaboration**: Reduce delays caused by switching between external chat tools.\n- **Contextual Conversations**: Tie chats directly to subaccounts, clients, or campaigns.\n- **Transparency**: Ensure everyone on the team has access to the same information.\n\n---\n\n### Example Usage\n\n- A sales team creates a **group chat** to coordinate on a high-priority lead.\n- A project manager shares **files and updates** about a campaign directly with the creative team.\n- A support team uses **internal chat threads** to quickly resolve a client issue before responding.\n\nThe **Team Chat module** keeps your team connected and aligned, making collaboration faster, clearer, and more effective."
-        },
-        {
-        "id": "landing-pages",
-        "title": "Landing Pages",
-        "content": "\n\nThe **Landing Pages** module provides a drag-and-drop builder for creating high-converting web pages. Whether you’re designing lead capture pages, sales pages, or full funnels, it gives you the flexibility to customize layouts and connect with other tools in the system.\n\n---\n\n### What You Can Do\n\n- **Drag-and-Drop Builder**: Create pages without coding by arranging sections, images, forms, and buttons.\n- **Templates**: Start quickly with pre-designed templates for common use cases like lead capture, webinars, or sales offers.\n- **Form Integration**: Embed forms to capture lead data directly into the CRM.\n- **Call-to-Action Elements**: Add buttons for booking calls, downloading resources, or purchasing offers.\n- **Analytics Tracking**: Monitor visitor behavior, conversions, and traffic sources.\n- **Funnel Linking**: Connect multiple pages into structured funnels for guided customer journeys.\n\n---\n\n### Benefits\n\n- **No-Code Design**: Build professional pages without technical expertise.\n- **Faster Launch**: Use templates and drag-and-drop tools to create pages in minutes.\n- **Optimized Conversions**: Add CTAs, forms, and tracking to maximize results.\n- **Scalable Campaigns**: Manage multiple pages across different clients or subaccounts.\n\n---\n\n### Example Usage\n\n- A coach creates a **webinar registration page** with an embedded form and automated confirmation email.\n- An e-commerce store designs a **limited-time sales page** with countdown timers and a checkout button.\n- An agency builds a **multi-step funnel** starting with a lead magnet page, followed by a thank-you page and an upsell offer.\n\nThe **Landing Pages module** empowers you to design, launch, and optimize web pages that capture leads, sell products, and drive measurable growth."
-        },
-        {
-        "id": "integration-api",
-        "title": "Integration API",
-        "content": "\n\nThe **Integration API** allows you to connect external services, apps, and platforms directly with your workspace. This enables seamless data flow, automation, and enhanced functionality across your tech stack.\n\n---\n\n### What You Can Do\n\n- **Connect Third-Party Apps**: Integrate CRM tools, email services, analytics platforms, and more.\n- **Data Sync**: Automatically push and pull data between systems, ensuring consistency.\n- **Webhook Support**: Trigger workflows or actions in real time when specific events occur.\n- **Custom Endpoints**: Access and manipulate data programmatically to meet specific business needs.\n- **Authentication & Security**: Secure API connections with tokens, permissions, and rate limits.\n\n---\n\n### Benefits\n\n- **Centralized Workflow**: Keep all data and processes connected in one system.\n- **Automation**: Reduce manual work by linking apps and triggering automated actions.\n- **Scalability**: Easily integrate additional tools as your business grows.\n- **Custom Solutions**: Build tailored integrations for unique business requirements.\n\n---\n\n### Example Usage\n\n- A marketing team connects a **third-party email platform** to automatically sync leads and campaign data.\n- An agency uses **webhooks** to update external reporting dashboards whenever a lead progresses in a funnel.\n- A business leverages **custom API endpoints** to push booking data from the CRM into an external scheduling system.\n\nThe **Integration API** empowers your team to extend functionality, automate processes, and connect the tools you rely on most, all while keeping data centralized and secure."
-        },
-        {
-        "id": "knowledge-base",
-        "title": "Knowledge Base",
-        "content": "\n\nThe **Knowledge Base** module allows you to create, organize, and publish help articles, FAQs, and guides. It serves both clients and internal teams, making information easily accessible and reducing repetitive questions.\n\n---\n\n### What You Can Do\n\n- **Article Creation**: Write detailed help articles, guides, or FAQs with rich text formatting.\n- **Categorization**: Organize content into categories, topics, or tags for easy navigation.\n- **Public & Private Access**: Publish articles for clients, internal teams, or both.\n- **Search Functionality**: Enable users to quickly find relevant information.\n- **Version Control**: Track edits and maintain a history of changes.\n- **Link Integration**: Connect articles to forms, campaigns, or other modules for context-sensitive help.\n\n---\n\n### Benefits\n\n- **Self-Service Support**: Reduce support requests by providing clear, accessible documentation.\n- **Consistent Information**: Ensure clients and team members receive accurate and up-to-date guidance.\n- **Time Efficiency**: Save time for both support teams and clients by centralizing knowledge.\n- **Scalable Knowledge**: Continuously expand your library as new questions or processes arise.\n\n---\n\n### Example Usage\n\n- A support team creates a **step-by-step guide** for clients to set up their accounts.\n- An agency publishes an **internal FAQ** to help team members quickly understand campaign workflows.\n- A company links **knowledge base articles** directly within forms or landing pages to guide leads and clients through processes.\n\nThe **Knowledge Base module** makes it easy to store, share, and maintain essential information, improving both client experience and internal efficiency."
-        },
-        {
-        "id": "workflows",
-        "title": "Workflows",
-        "content": "\n\nThe **Workflows** module enables you to automate repetitive tasks by defining triggers and actions. This helps streamline processes, reduce manual work, and ensure consistent follow-ups across campaigns, forms, and client interactions.\n\n---\n\n### What You Can Do\n\n- **Define Triggers**: Set events that start a workflow, such as form submissions, lead creation, or tag updates.\n- **Create Actions**: Automate tasks like sending emails, SMS, notifications, or updating records.\n- **Conditional Logic**: Add if/else conditions to personalize workflow actions based on lead or client data.\n- **Multi-Step Processes**: Chain multiple actions together to handle complex automation sequences.\n- **Integration with Other Modules**: Connect workflows with Leads, Forms, Campaigns, Emails, and more.\n- **Monitor Workflow Performance**: Track how many leads completed workflows and analyze effectiveness.\n\n---\n\n### Benefits\n\n- **Time Savings**: Eliminate repetitive manual tasks and free up your team for high-value work.\n- **Consistency**: Ensure that actions like follow-ups or notifications always happen on time.\n- **Personalization**: Automatically tailor messages and actions to the lead’s behavior or attributes.\n- **Scalability**: Easily replicate workflows across clients, campaigns, or subaccounts.\n\n---\n\n### Example Usage\n\n- Automatically **send a welcome email** when a new lead submits a form.\n- Assign a **follow-up task** to a sales rep when a lead reaches a certain score.\n- Trigger an **SMS reminder** when an appointment is booked through the Calendars module.\n- Update lead tags and move them through a **multi-step nurture sequence** based on their actions.\n\nThe **Workflows module** ensures your processes are automated, consistent, and efficient, helping your team focus on meaningful interactions and growth."
-        },
-        {
-        "id": "feedback",
-        "title": "Feedback",
-        "content": "\n\nThe **Feedback** module allows you to collect, organize, and analyze input from users or clients. Gathering feedback helps you improve services, understand client satisfaction, and make data-driven decisions.\n\n---\n\n### What You Can Do\n\n- **Collect Feedback**: Create forms, surveys, or polls to gather insights.\n- **Customizable Questions**: Use multiple choice, rating scales, open text, or checkboxes.\n- **Anonymous or Identified Responses**: Allow users to provide feedback anonymously or track responses by client.\n- **Automated Follow-Ups**: Trigger emails, notifications, or workflows based on responses.\n- **Integration with Other Modules**: Connect feedback with Clients, Workflows, or Campaigns for context.\n- **Analyze Responses**: Review feedback trends, ratings, and comments to inform decisions.\n\n---\n\n### Benefits\n\n- **Improved Services**: Use direct input to refine products, processes, or campaigns.\n- **Client Engagement**: Show clients that their opinions are valued and acted upon.\n- **Data-Driven Decisions**: Make informed choices based on actual user feedback.\n- **Efficiency**: Automate collection and follow-up for consistent engagement.\n\n---\n\n### Example Usage\n\n- A marketing team sends a **post-campaign survey** to understand client satisfaction.\n- A service provider collects **feedback on appointments** to improve scheduling and experience.\n- An agency uses **feedback forms** to gather input on landing page performance and tweak designs accordingly.\n\nThe **Feedback module** empowers your team to listen, learn, and adapt, turning client insights into actionable improvements."
+          "text": "Click a subaccount to access full CRM functionality.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/8_nkppwi.png"
         }
       ]
     },
     {
-      "id": "faqs",
-      "title": "FAQs",
-      "children": [
-        { "id": "agency-faqs", "title": "Agency Space FAQs", "content": "Frequently asked questions about managing your agency space." },
-        { "id": "subaccount-faqs", "title": "Subaccount Space FAQs", "content": "Frequently asked questions about using subaccounts." }
+      "id": "forms",
+      "title": "📝 Create a Form",
+      "description": "The Forms module allows you to build and customize forms for capturing leads and automating actions.",
+      "features": [
+        "Custom Form Builder",
+        "Lead Scoring",
+        "Workflow Triggers",
+        "Conditional Logic",
+        "Data Management",
+        "Branding Options"
+      ],
+      "benefits": [
+        "Seamless data capture",
+        "Faster response times",
+        "Improved lead qualification",
+        "Consistent branding"
+      ],
+      "examples": [
+        "Gym membership inquiry form with sales pipeline automation",
+        "Survey form that segments leads into campaigns",
+        "Appointment request form syncing with Calendars"
+      ],
+      "steps": [
+        {
+          "text": "Go to Forms in the sidebar.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/9_qdrpis.png"
+        },
+        {
+          "text": "Click New Form."
+        },
+        {
+          "text": "Drag & drop fields (name, email, phone, etc.).",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468413/10_dokqrs.png"
+        },
+        {
+          "text": "Optionally set lead scoring rules.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468417/11_i9iqnz.png"
+        },
+        {
+          "text": "Save Form."
+        }
       ]
-    }
+    },
+    {
+      "id": "landing-pages",
+      "title": "🖥 Create a Landing Page",
+      "description": "The Landing Pages module provides a drag-and-drop builder for creating high-converting web pages.",
+      "features": [
+        "Drag-and-Drop Builder",
+        "Templates",
+        "Form Integration",
+        "Call-to-Action Elements",
+        "Analytics Tracking",
+        "Funnel Linking"
+      ],
+      "benefits": [
+        "No-code design",
+        "Faster launch",
+        "Optimized conversions",
+        "Scalable campaigns"
+      ],
+      "examples": [
+        "Coach creates a webinar registration page",
+        "E-commerce store designs a sales page with countdown timer",
+        "Agency builds multi-step funnel with lead magnet + upsell"
+      ],
+      "steps": [
+        {
+          "text": "Go to Landing Pages."
+        },
+        {
+          "text": "Click New Page → choose template or start from scratch.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468418/12_dpugxn.png"
+        },
+        {
+          "text": "Drag & drop components (header, hero, form, testimonials, etc.).",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468418/13_nzrg9b.png"
+        },
+        {
+          "text": "Connect a form (for lead capture).",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468418/14_zm5lsf.png"
+        },
+        {
+          "text": "Save and inspect live mode.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/15_boc959.png"
+        }
+      ]
+    },
+      {
+    "id": "conversations",
+    "title": "💬 Conversations",
+    "description": "The Conversations module provides a unified inbox where all client communications come together. Whether it’s email, SMS, WhatsApp, or Facebook messages, everything is centralized so you never lose track of important interactions.",
+    "features": [
+      "Unified Inbox: View and respond to messages from multiple channels in one place.",
+      "Multi-Channel Support: Handle emails, SMS, WhatsApp, Facebook Messenger, and more without switching platforms.",
+      "Conversation History: Access a complete log of past communications with each client.",
+      "Team Collaboration: Assign conversations to team members and add internal notes.",
+      "Automated Responses: Use templates or workflows to quickly reply to common questions."
+    ],
+    "benefits": [
+      "Improved Response Time: Manage all channels efficiently without missing messages.",
+      "Personalized Communication: See full history to provide context-aware replies.",
+      "Centralized Workflow: Eliminate the need to juggle between apps or inboxes.",
+      "Stronger Client Relationships: Stay consistent and professional across every touchpoint."
+    ],
+    "examples": [
+      "A sales rep checks the unified inbox to respond to a lead who first emailed, then followed up via WhatsApp.",
+      "An agency manager assigns a Facebook Messenger inquiry to the right team member.",
+      "A support agent reviews the full conversation history before answering a client’s new question."
+    ],
+    "steps": []
+  },
+  {
+    "id": "connect-gmail",
+    "title": "📧 Connect Gmail Emails",
+    "steps": [
+      { "text": "Go to Integrations > Gmail.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/19_x7n9oa.png" },
+      { "text": "Click Connect Google Account → sign in to your Gmail.", "image": "" },
+      { "text": "Grant access to read/send emails.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png" },
+      { "text": "Now emails sync with your Conversations & Campaigns modules.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png" }
+    ]
+  },
+  {
+    "id": "connect-meta",
+    "title": "🔗 Connect Facebook & WhatsApp",
+    "steps": [
+      { "text": "Go to Integrations > Meta.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" },
+      { "text": "Click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468421/17_i5ztb4.png" },
+      { "text": "Once successful, your Conversations module is now synced with WhatsApp & Facebook.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png" }
+    ]
+  },
+  {
+    "id": "ads-setup",
+    "title": "📢 Ads Setup",
+    "description": "The Facebook Ads module integrates directly with Facebook Ads Manager, allowing you to create, manage, and track advertising campaigns without leaving the platform. This helps you generate leads, increase brand awareness, and measure return on investment in real time.",
+    "features": [
+      "Ad Campaign Management: Launch and monitor campaigns directly from your workspace.",
+      "Audience Targeting: Define custom audiences using demographics, interests, and behaviors.",
+      "Ad Creative Control: Upload images, videos, and copy that match your brand’s message.",
+      "Budget & Scheduling: Set daily or lifetime budgets and control when ads are delivered.",
+      "Performance Tracking: Monitor impressions, clicks, conversions, and cost per acquisition.",
+      "Lead Sync: Automatically push Facebook leads into the Leads module for follow-up."
+    ],
+    "benefits": [
+      "Centralized Advertising: Manage ads alongside funnels, campaigns, and client data.",
+      "Smarter Spending: Optimize ad spend based on performance metrics.",
+      "Faster Follow-Up: Capture leads instantly and trigger workflows or campaigns.",
+      "Scalable Growth: Run ads for multiple subaccounts or clients from one system."
+    ],
+    "examples": [
+      "An agency sets up a lead generation ad campaign on Facebook, with all new leads automatically added to the CRM.",
+      "A local restaurant runs a promotion campaign targeting nearby residents, with results tracked in real time.",
+      "A coach launches a video ad campaign and monitors conversions, adjusting budget based on performance."
+    ],
+    "steps": [
+      { "text": "Make sure you connect Facebook to your subaccount.", "image": "" },
+      { "text": "Go to Facebook Ads in the dashboard.", "image": "" },
+      { "text": "View campaigns, ad sets, and performance data inside your agency workspace.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756472341/image_mvdqfr.png" }
+    ]
+  },
+  {
+    "id": "clients",
+    "title": "👥 Convert Leads to Clients",
+    "description": "The Clients module is where all customer and lead information is organized. It serves as a central database that makes it easy to manage relationships, track interactions, and keep detailed records for every individual or business you work with.",
+    "features": [
+      "Store Client Profiles: Keep essential details such as name, email, phone number, company, and role.",
+      "Add Notes: Document important information from calls, meetings, or personal preferences.",
+      "Track Activity: See a timeline of client interactions, including emails, SMS, bookings, and campaign engagement.",
+      "Segment and Filter: Group clients based on tags, industries, or behaviors for targeted communication.",
+      "Integrate with Campaigns: Automatically sync clients into email, SMS, or workflow campaigns."
+    ],
+    "benefits": [
+      "Centralized Information: All client data is in one accessible location.",
+      "Better Communication: Personalized interactions based on history and notes.",
+      "Increased Productivity: Quickly access records without switching tools.",
+      "Data-Driven Decisions: Understand client engagement through activity logs and analytics."
+    ],
+    "examples": [
+      "An agency onboarding a new client can add their business details, contacts, and notes into the system immediately.",
+      "A sales team can view a client’s full communication history before making a call, ensuring conversations are relevant and informed.",
+      "A marketing manager can filter clients by location or interest to launch a targeted campaign."
+    ],
+    "steps": []
+  },
+  {
+    "id": "leads",
+    "title": "📋 Leads",
+    "description": "The Leads module is designed to capture, organize, and manage potential clients from multiple sources. Leads can come from forms, campaigns, landing pages, or even manual imports, giving you a single place to track and nurture new opportunities.",
+    "features": [
+      "Capture Leads: Collect information through forms, landing pages, campaigns, or integrations.",
+      "Import Data: Upload leads from external lists or CRM systems.",
+      "Lead Profiles: Store details such as name, email, phone, source, and tags.",
+      "Activity Tracking: Monitor interactions like campaign engagement, form submissions, or appointments.",
+      "Segmentation: Organize leads by tags, interests, or behaviors for targeted follow-ups.",
+      "Conversion Management: Move leads through pipelines or workflows as they progress."
+    ],
+    "benefits": [
+      "Centralized Lead Database: Keep every prospect organized in one system.",
+      "Improved Follow-Ups: Never miss a touchpoint thanks to detailed activity logs.",
+      "Smarter Targeting: Segment leads for personalized campaigns and higher conversion rates.",
+      "Seamless Growth: Easily scale by importing or capturing leads from multiple sources."
+    ],
+    "examples": [
+      "A marketing campaign drives traffic to a landing page form, automatically adding new leads to the database.",
+      "A sales manager imports a CSV file of prospects and tags them by region for targeted outreach.",
+      "A business tracks a lead’s journey from first ad click to booked appointment, ensuring proper follow-up."
+    ],
+    "steps": [
+      { "text": "Go to Leads/Contacts.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/22_o3kt2q.png" },
+      { "text": "Select a form to check its submissions.", "image": "" },
+      { "text": "Update status → “Convert” to “Converted” to move the lead to clients section (or move to a deal/funnel).", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468425/23_fp3zil.png" },
+      { "text": "Optionally assign them to a pipeline or workflow.", "image": "" }
+    ]
+  },
+  {
+    "id": "knowledge-base",
+    "title": "📚 AI Agents for Landing Pages (Knowledge Base)",
+    "description": "The Knowledge Base module allows you to create, organize, and publish help articles, FAQs, and guides. It serves both clients and internal teams, making information easily accessible and reducing repetitive questions.",
+    "features": [
+      "Article Creation: Write detailed help articles, guides, or FAQs with rich text formatting.",
+      "Categorization: Organize content into categories, topics, or tags for easy navigation.",
+      "Public & Private Access: Publish articles for clients, internal teams, or both.",
+      "Search Functionality: Enable users to quickly find relevant information.",
+      "Version Control: Track edits and maintain a history of changes.",
+      "Link Integration: Connect articles to forms, campaigns, or other modules for context-sensitive help."
+    ],
+    "benefits": [
+      "Self-Service Support: Reduce support requests by providing clear, accessible documentation.",
+      "Consistent Information: Ensure clients and team members receive accurate and up-to-date guidance.",
+      "Time Efficiency: Save time for both support teams and clients by centralizing knowledge.",
+      "Scalable Knowledge: Continuously expand your library as new questions or processes arise."
+    ],
+    "examples": [
+      "A support team creates a step-by-step guide for clients to set up their accounts.",
+      "An agency publishes an internal FAQ to help team members quickly understand campaign workflows.",
+      "A company links knowledge base articles directly within forms or landing pages to guide leads and clients through processes."
+    ],
+    "steps": [
+      { "text": "Go to Knowledge Base.", "image": "" },
+      { "text": "Click New Article → add FAQs, guides, or resource content.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468426/24_gj4mxg.png" },
+      { "text": "Enable AI Agent for a landing page: Go to Landing Page settings → toggle AI Chatbot → Select which knowledge base to use.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468426/25_mybyqx.png" },
+      { "text": "Visitors can now chat with the AI agent directly on the page.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468426/26_mkk1jb.png" }
+    ]
+  },
+  
+  {
+    "id": "email-campaigns",
+    "title": "📤 Create Email Campaigns",
+    "description": "The Campaigns module enables you to design, launch, and manage marketing campaigns across email and SMS. With scheduling, automation, and personalization, you can reach the right audience at the right time and measure the results effectively.",
+    "features": [
+      "Campaign Composer: Create professional email and SMS campaigns with customizable templates.",
+      "Scheduling: Plan campaigns in advance and send messages at the best time for your audience.",
+      "Automation: Set up drip campaigns, follow-ups, and conditional workflows based on lead behavior.",
+      "Audience Segmentation: Target specific groups of leads or clients based on tags, demographics, or activity.",
+      "A/B Testing: Compare subject lines, content, or sending times to optimize performance.",
+      "Analytics: Track open rates, click rates, replies, and conversions in real time."
+    ],
+    "benefits": [
+      "Multi-Channel Outreach: Engage prospects through both email and SMS for better coverage.",
+      "Time Efficiency: Automate repetitive tasks and let the system handle follow-ups.",
+      "Data-Driven Improvements: Use analytics and A/B tests to continuously refine messaging.",
+      "Scalable Growth: Run multiple campaigns simultaneously across different clients or subaccounts."
+    ],
+    "examples": [
+      "A real estate agency launches an email campaign showcasing new property listings, with links to book viewings.",
+      "A fitness trainer runs an SMS campaign to remind members about an upcoming class and offer a limited-time discount.",
+      "An e-commerce business sets up an automated drip campaign that sends a welcome email, a follow-up product recommendation, and a cart recovery message if no purchase is made."
+    ],
+    "steps": [
+      { "text": "Go to Email Campaigns.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468428/27_zarpy2.png" },
+      { "text": "Click New Campaign.", "image": "" },
+      { "text": "Choose audience filters (all leads, tagged leads, etc.).", "image": "" },
+      { "text": "Write your email (or use a saved template).", "image": "" },
+      { "text": "Schedule send or send immediately.", "image": "" },
+      { "text": "Track opens, clicks, and conversions in analytics.", "image": "" }
+    ]
+  },
+  {
+    "id": "team-conversations",
+    "title": "💬 Team Conversations",
+    "description": "The Team Chat module provides an internal messaging space for your team members within a subaccount. It keeps collaboration seamless and ensures that important discussions stay connected to the client workspace.",
+    "features": [
+      "Direct Messaging: Send private one-to-one messages between team members.",
+      "Group Chats: Create chat rooms for projects, departments, or campaigns.",
+      "Message History: Keep a full record of past conversations for easy reference.",
+      "File Sharing: Upload and share files, links, or documents directly in the chat.",
+      "Mentions & Notifications: Tag team members to get their attention quickly.",
+      "Integration with Workflows: Link chat discussions with tasks, clients, or campaigns."
+    ],
+    "benefits": [
+      "Centralized Communication: Keep all internal discussions in the same platform as client work.",
+      "Faster Collaboration: Reduce delays caused by switching between external chat tools.",
+      "Contextual Conversations: Tie chats directly to subaccounts, clients, or campaigns.",
+      "Transparency: Ensure everyone on the team has access to the same information."
+    ],
+    "examples": [
+      "A sales team creates a group chat to coordinate on a high-priority lead.",
+      "A project manager shares files and updates about a campaign directly with the creative team.",
+      "A support team uses internal chat threads to quickly resolve a client issue before responding."
+    ],
+    "steps": [
+      { "text": "Go to Team Chat.", "image": "" },
+      { "text": "Chat with your agency team in real time.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468427/28_d0kwsd.png" }
+    ]
+  },
+  {
+    "id": "api-integrations",
+    "title": "🔗 API Integrations",
+    "description": "The Integration API allows you to connect external services, apps, and platforms directly with your workspace. This enables seamless data flow, automation, and enhanced functionality across your tech stack.",
+    "features": [
+      "Connect Third-Party Apps: Integrate CRM tools, email services, analytics platforms, and more.",
+      "Data Sync: Automatically push and pull data between systems, ensuring consistency.",
+      "Webhook Support: Trigger workflows or actions in real time when specific events occur.",
+      "Custom Endpoints: Access and manipulate data programmatically to meet specific business needs.",
+      "Authentication & Security: Secure API connections with tokens, permissions, and rate limits."
+    ],
+    "benefits": [
+      "Centralized Workflow: Keep all data and processes connected in one system.",
+      "Automation: Reduce manual work by linking apps and triggering automated actions.",
+      "Scalability: Easily integrate additional tools as your business grows.",
+      "Custom Solutions: Build tailored integrations for unique business requirements."
+    ],
+    "examples": [
+      "A marketing team connects a third-party email platform to automatically sync leads and campaign data.",
+      "An agency uses webhooks to update external reporting dashboards whenever a lead progresses in a funnel.",
+      "A business leverages custom API endpoints to push booking data from the CRM into an external scheduling system."
+    ],
+    "steps": []
+  },
+  {
+    "id": "calendar",
+    "title": "📅 Calendar",
+    "description": "The Calendars module helps you manage appointments, bookings, and schedules in one centralized place. It simplifies time management for both you and your clients while integrating seamlessly with popular tools like Google Calendar.",
+    "features": [
+      "Schedule Appointments: Allow clients to book meetings, calls, or sessions directly through your calendar.",
+      "Automated Reminders: Send confirmation and reminder notifications via email or SMS to reduce no-shows.",
+      "Team Scheduling: Assign appointments to different team members and manage availability.",
+      "Sync with External Calendars: Keep your schedule aligned by connecting Google Calendar, Outlook, or other tools.",
+      "Custom Booking Links: Share unique booking pages for services, events, or personal availability."
+    ],
+    "benefits": [
+      "Streamlined Scheduling: Eliminate back-and-forth messaging when arranging appointments.",
+      "Improved Client Experience: Clients can easily see available times and book instantly.",
+      "Time Optimization: Block off unavailable times, set working hours, and avoid conflicts.",
+      "Multi-Calendar Management: Manage multiple calendars across subaccounts or team members from one place."
+    ],
+    "examples": [
+      "A consultant creates a booking link that lets prospects schedule free strategy calls.",
+      "A fitness trainer manages class schedules and personal training sessions, with automatic reminders to clients.",
+      "An agency syncs its team members’ calendars with Google Calendar so everyone stays on the same page."
+    ],
+    "steps": [
+      { "text": "Go to Calendars.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756472792/30_k3yjtg.png" }
+    ]
+  },
+  {
+    "id": "give-feedback",
+    "title": "📝 Give Feedback",
+    "steps": [
+      { "text": "Click your profile icon → Feedback.", "image": "" },
+      { "text": "Write your suggestion, bug, or request.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468429/29_evadjw.png" },
+      { "text": "Submit → the team will review it.", "image": "" }
+    ]
+  },
+  {
+    "id": "settings",
+    "title": "⚙️ Settings",
+    "steps": [
+      { "text": "Go to Settings from sidebar.", "image": "" },
+      { "text": "Manage Agency profile (name, domain, timezone) and Users & roles.", "image": "" }
+    ]
+  }
+
+
   ]
 }
