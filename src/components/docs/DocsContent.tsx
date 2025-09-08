@@ -1,15 +1,16 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { 
   HelpCircle,
   Shield,
   Lightbulb,
   ArrowRight,
-  Star
+  Star,
+  MessageCircle
 } from "lucide-react";
 import { Breadcrumbs } from "./Breadcrumbs";
 import Markdown from 'react-markdown';
-import data from "../../../data.json"; // <- matches your MVP JSON
-
+import data from "../../../data.json";
+import DocsChat from "./DocsChat";
 
 interface DocsContentProps {
   activeSection: string;
@@ -27,14 +28,14 @@ const FeatureCard = ({ icon: Icon, title, description }: {
   title: string;
   description: string;
 }) => (
-  <div className="group p-6 bg-gradient-card border border-border-light rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+  <div className="group p-6 bg-gradient-card border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
     <div className="flex items-center gap-3 mb-3">
-      <div className="p-2 rounded-lg bg-primary/10">
-        <Icon className="w-5 h-5 text-primary" />
+      <div className="p-2 rounded-lg bg-blue-600/10">
+        <Icon className="w-5 h-5 text-blue-600" />
       </div>
-      <h4 className="font-semibold text-heading">{title}</h4>
+      <h4 className="font-semibold text-gray-800">{title}</h4>
     </div>
-    <p className="text-sm text-body">{description}</p>
+    <p className="text-sm text-gray-600">{description}</p>
   </div>
 );
 
@@ -43,13 +44,13 @@ const StepItem = ({ number, text, image }: {
   text: string;
   image?: string;
 }) => (
-  <div className="group flex gap-4 p-6 bg-gradient-subtle rounded-xl border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
-    <div className="flex-shrink-0 w-10 h-10 bg-gradient-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm shadow-md">
+  <div className="group flex gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
+    <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-sm shadow-md">
       {number}
     </div>
     <div className="flex-1">
-      <p className="text-body text-sm leading-relaxed">{text}</p>
-      {image && <img src={image} alt={text} className="mt-2 rounded-lg border" />}
+      <p className="text-gray-600 text-sm leading-relaxed">{text}</p>
+      {image && <img src={image} alt={text} className="mt-2 rounded-lg border border-gray-200" />}
     </div>
   </div>
 );
@@ -81,7 +82,6 @@ const InfoBox = ({ type = "info", children }: { type?: "info" | "warning" | "tip
   );
 };
 
-
 const sections = data.sections;
 
 const getBreadcrumbItems = (activeSection: string) => {
@@ -92,18 +92,17 @@ const getBreadcrumbItems = (activeSection: string) => {
 export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps) => {
   const breadcrumbItems = getBreadcrumbItems(activeSection);
   const section: any = sections.find((s: any) => s.id === activeSection);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const renderContent = () => {
     if (!section) {
       return (
         <ContentSection>
-          <h1>Documentation Section</h1>
-          <p className="text-xl text-subheading mb-6">
-            Select a section from the sidebar to view detailed documentation.
-          </p>
+          <h1>{data.title}</h1>
+          <p className="text-xl text-gray-600 mb-6">{data.subtitle}</p>
           <div className="text-center py-12">
-            <ArrowRight className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-            <p className="text-muted-foreground">Choose a topic from the navigation menu to get started.</p>
+            <ArrowRight className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-400">Choose a topic from the navigation menu to get started.</p>
           </div>
         </ContentSection>
       );
@@ -113,10 +112,9 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
       <ContentSection>
         <h1>{section.title}</h1>
         {section.description && (
-          <p className="text-xl text-subheading mb-6">{section.description}</p>
+          <p className="text-xl text-gray-600 mb-6">{section.description}</p>
         )}
 
-        {/* Features */}
         {section.features && (
           <>
             <h2>Features</h2>
@@ -128,31 +126,28 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
           </>
         )}
 
-        {/* Benefits */}
         {section.benefits && (
           <>
             <h2>Benefits</h2>
             <ul className="list-disc pl-6">
               {section.benefits.map((b: string, i: number) => (
-                <li key={i}>{b}</li>
+                <li key={i} className="text-gray-600">{b}</li>
               ))}
             </ul>
           </>
         )}
 
-        {/* Examples */}
         {section.examples && (
           <>
             <h2>Examples</h2>
             <ul className="list-disc pl-6">
               {section.examples.map((ex: string, i: number) => (
-                <li key={i}>{ex}</li>
+                <li key={i} className="text-gray-600">{ex}</li>
               ))}
             </ul>
           </>
         )}
 
-        {/* Steps */}
         {section.steps && (
           <>
             <h2>Steps</h2>
@@ -171,7 +166,7 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
     <div className="flex-1 overflow-y-auto">
       <div className="max-w-4xl mx-auto p-8">
         {breadcrumbItems.length > 0 && (
-          <div className="mb-6 pb-4 border-b border-border-light animate-fade-in">
+          <div className="mb-6 pb-4 border-b border-gray-200 animate-fade-in">
             <Breadcrumbs 
               items={breadcrumbItems} 
               onNavigate={onSectionChange}
@@ -181,6 +176,20 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
         <div className="animate-fade-in-scale">
           {renderContent()}
         </div>
+        {/* Chat Toggle Button */}
+        <button
+          className="fixed bottom-8 right-8 z-40 bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-pulse-subtle"
+          onClick={() => setIsChatOpen(!isChatOpen)}
+          title={isChatOpen ? "Close Chat" : "Open Chat"}
+        >
+          <MessageCircle className="w-6 h-6" />
+        </button>
+        {/* Chat Window */}
+        {isChatOpen && (
+          <div className="fixed bottom-8 right-8 z-50 animate-slide-in-right">
+            <DocsChat onClose={() => setIsChatOpen(false)} />
+          </div>
+        )}
       </div>
     </div>
   );
