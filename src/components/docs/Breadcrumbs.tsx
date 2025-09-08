@@ -28,22 +28,35 @@ export const Breadcrumbs = ({ items, onNavigate, className }: BreadcrumbsProps) 
 
       {items.map((item, index) => (
         <div key={item.id} className="flex items-center space-x-2">
-          <ChevronRight className="w-4 h-4 text-muted-foreground" />
           
           {index === items.length - 1 ? (
-            <span className="font-medium text-foreground" aria-current="page">
-              {item.label}
-            </span>
+            
+            item.label.map((lab) => (
+              <>
+              
+              <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                <span key={lab} className="font-medium text-foreground" aria-current="page">
+                  {lab}
+                </span>
+              </>
+            
+              ))
+            
+            
+            
           ) : (
             <button
               onClick={() => onNavigate(item.id)}
               className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:underline"
             >
-              {item.label}
+              {item.label }
+              
             </button>
           )}
         </div>
-      ))}
+      ))
+      
+      }
     </nav>
   );
 };

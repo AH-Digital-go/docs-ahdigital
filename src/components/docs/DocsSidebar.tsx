@@ -55,7 +55,14 @@ export const DocsSidebar = ({ activeSection, onSectionChange }: DocsSidebarProps
     return (
       <div key={item.id} className="w-full">
         <button
-          onClick={() => (hasChildren ? toggleExpanded(item.id) : onSectionChange(item.id))}
+          onClick={() => {
+  if (hasChildren) {
+    toggleExpanded(item.id);
+    onSectionChange(item.id);
+  } else {
+    onSectionChange(item.id);
+  }
+}}
           className={cn(
             "w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-lg transition-all duration-300 group",
             "hover:bg-sidebar-hover hover:shadow-sm",
