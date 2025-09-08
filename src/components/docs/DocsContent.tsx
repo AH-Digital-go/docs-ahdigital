@@ -1,23 +1,14 @@
 import { ReactNode } from "react";
 import { 
-  CheckCircle, 
-  Users, 
-  Building2, 
-  Calendar, 
-  MessageSquare, 
-  FileText,
-  BarChart3,
-  Settings,
-  Lightbulb,
   HelpCircle,
+  Shield,
+  Lightbulb,
   ArrowRight,
-  Star,
-  Zap,
-  Shield
+  Star
 } from "lucide-react";
 import { Breadcrumbs } from "./Breadcrumbs";
 import Markdown from 'react-markdown';
-import data from "../../../data.json"; // <- JSON import
+import data from "../../../data.json"; // <- matches your MVP JSON
 
 
 interface DocsContentProps {
@@ -31,42 +22,34 @@ const ContentSection = ({ children, className = "" }: { children: ReactNode; cla
   </div>
 );
 
-const FeatureCard = ({ icon: Icon, title, description, featured = false }: { 
+const FeatureCard = ({ icon: Icon, title, description }: { 
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
-  featured?: boolean;
 }) => (
-  <div className={`
-    group p-6 bg-gradient-card border border-border-light rounded-xl 
-    hover:shadow-lg hover:shadow-glow transition-all duration-300 hover:scale-[1.02]
-    ${featured ? 'ring-2 ring-primary/20 bg-gradient-hero text-white' : ''}
-  `}>
+  <div className="group p-6 bg-gradient-card border border-border-light rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
     <div className="flex items-center gap-3 mb-3">
-      <div className={`
-        p-2 rounded-lg transition-all duration-300 group-hover:scale-110
-        ${featured ? 'bg-white/20' : 'bg-primary/10'}
-      `}>
-        <Icon className={`w-5 h-5 ${featured ? 'text-white' : 'text-primary'}`} />
+      <div className="p-2 rounded-lg bg-primary/10">
+        <Icon className="w-5 h-5 text-primary" />
       </div>
-      <h4 className={`font-semibold ${featured ? 'text-white' : 'text-heading'}`}>{title}</h4>
+      <h4 className="font-semibold text-heading">{title}</h4>
     </div>
-    <p className={`text-sm ${featured ? 'text-white/90' : 'text-body'}`}>{description}</p>
+    <p className="text-sm text-body">{description}</p>
   </div>
 );
 
-const StepItem = ({ number, title, description }: { 
+const StepItem = ({ number, text, image }: { 
   number: number;
-  title: string;
-  description: string;
+  text: string;
+  image?: string;
 }) => (
   <div className="group flex gap-4 p-6 bg-gradient-subtle rounded-xl border border-border-light hover:shadow-md transition-all duration-300 hover:scale-[1.01]">
-    <div className="flex-shrink-0 w-10 h-10 bg-gradient-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+    <div className="flex-shrink-0 w-10 h-10 bg-gradient-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm shadow-md">
       {number}
     </div>
     <div className="flex-1">
-      <h4 className="font-semibold text-heading mb-2 group-hover:text-primary transition-colors duration-200">{title}</h4>
-      <p className="text-body text-sm leading-relaxed">{description}</p>
+      <p className="text-body text-sm leading-relaxed">{text}</p>
+      {image && <img src={image} alt={text} className="mt-2 rounded-lg border" />}
     </div>
   </div>
 );
@@ -99,41 +82,18 @@ const InfoBox = ({ type = "info", children }: { type?: "info" | "warning" | "tip
 };
 
 
-const navigation = data.navigation;
+const sections = data.sections;
 
 const getBreadcrumbItems = (activeSection: string) => {
-  for (const nav of navigation) {
-    if (nav.children) {
-      for (const child of nav.children) {
-        if (child.id === activeSection) {
-          return [{ label: nav.title, id: nav.id }];
-        }
-      }
-    }
-  }
-  return [];
+  const section = sections.find((s: any) => s.id === activeSection);
+  return section ? [{ label: section.title, id: section.id }] : [];
 };
 
 export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps) => {
   const breadcrumbItems = getBreadcrumbItems(activeSection);
+  const section: any = sections.find((s: any) => s.id === activeSection);
 
   const renderContent = () => {
-    let section: any = null;
-    outer: for (const nav of navigation) {
-      if (nav.id === activeSection) {
-        section = nav;
-        break;
-      }
-      if (nav.children) {
-        for (const child of nav.children) {
-          if (child.id === activeSection) {
-            section = child;
-            break outer;
-          }
-        }
-      }
-    }
-
     if (!section) {
       return (
         <ContentSection>
@@ -141,7 +101,6 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
           <p className="text-xl text-subheading mb-6">
             Select a section from the sidebar to view detailed documentation.
           </p>
-          
           <div className="text-center py-12">
             <ArrowRight className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
             <p className="text-muted-foreground">Choose a topic from the navigation menu to get started.</p>
@@ -150,52 +109,62 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
       );
     }
 
-    if (section.children) {
-      // Parent section: render children as feature cards
-      return (
-        <ContentSection>
-          <h1>{section.title}</h1>
-          <p className="text-xl text-subheading mb-6">
-            Explore the subsections of {section.title} below.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {section.children.map((child: any) => (
-              <FeatureCard
-                key={child.id}
-                icon={Star}
-                title={child.title}
-                description={child.content}
-              />
-            ))}
-          </div>
-          <InfoBox type="tip">
-            Click on a subsection card or use the sidebar to dive deeper into each topic.
-          </InfoBox>
-        </ContentSection>
-      );
-    } else {
-      // Leaf section: render content as markdown
-      return (
-        <ContentSection  >
-          <style >{`
-      
+    return (
+      <ContentSection>
+        <h1>{section.title}</h1>
+        {section.description && (
+          <p className="text-xl text-subheading mb-6">{section.description}</p>
+        )}
 
-      .prose p, ul, ol, hr{
-        padding:0.9rem 0;
-        color: rgba(121, 117, 117, 1);
-        line-height: 1.5rem;
-        list-style: circle;
-      }
+        {/* Features */}
+        {section.features && (
+          <>
+            <h2>Features</h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {section.features.map((f: string, i: number) => (
+                <FeatureCard key={i} icon={Star} title={f} description="" />
+              ))}
+            </div>
+          </>
+        )}
 
-     
-    `}</style>
-          <h1>{section.title}</h1>
-          <Markdown>
-            {section.content}
-          </Markdown>
-        </ContentSection>
-      );
-    }
+        {/* Benefits */}
+        {section.benefits && (
+          <>
+            <h2>Benefits</h2>
+            <ul className="list-disc pl-6">
+              {section.benefits.map((b: string, i: number) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* Examples */}
+        {section.examples && (
+          <>
+            <h2>Examples</h2>
+            <ul className="list-disc pl-6">
+              {section.examples.map((ex: string, i: number) => (
+                <li key={i}>{ex}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* Steps */}
+        {section.steps && (
+          <>
+            <h2>Steps</h2>
+            <div className="space-y-4">
+              {section.steps.map((s: any, i: number) => (
+                <StepItem key={i} number={i + 1} text={s.text} image={s.image} />
+              ))}
+            </div>
+          </>
+        )}
+      </ContentSection>
+    );
   };
 
   return (
@@ -209,7 +178,6 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
             />
           </div>
         )}
-        
         <div className="animate-fade-in-scale">
           {renderContent()}
         </div>
