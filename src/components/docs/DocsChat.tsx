@@ -63,7 +63,7 @@ const DocsChat = ({ onClose }: DocsChatProps) => {
     setLoading(true);
 
     try {
-      const webhookUrl = "http://localhost:5678/webhook/fdb75e32-b836-4de5-8e2f-326888d8ea63";
+      const webhookUrl = "https://n8n-supabase-7soe.onrender.com/webhook/fdb75e32-b836-4de5-8e2f-326888d8ea63";
 
       const response = await fetch(webhookUrl, {
         method: "POST",
