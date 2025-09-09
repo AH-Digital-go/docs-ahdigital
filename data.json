@@ -1,6 +1,6 @@
 {
-  "title": "📘 How to Use AH Digital",
-  "subtitle": "A step-by-step guide for agency owners and team members.",
+  "title": "AH Digital Docs",
+  "subtitle": "A step-by-step guide",
   "sections": [
     {
       "id": "create-account",
@@ -335,11 +335,11 @@
     ],
     "steps": [
       { "text": "Go to Email Campaigns.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468428/27_zarpy2.png" },
-      { "text": "Click New Campaign.", "image": "" },
-      { "text": "Choose audience filters (all leads, tagged leads, etc.).", "image": "" },
-      { "text": "Write your email (or use a saved template).", "image": "" },
-      { "text": "Schedule send or send immediately.", "image": "" },
-      { "text": "Track opens, clicks, and conversions in analytics.", "image": "" }
+      { "text": "Click New Campaign and set a name and Subject of the Emails to be sent", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434094/1fa5bd10-9187-43f3-8e84-f000342452b3.png" },
+      { "text": "Choose your Email Template,you can either select an existing email template that you've created on the Email page, or create a new one either from the visual editor or from the HTML editor.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434011/3f74a203-104f-4197-bf03-9800e89ee9db.png" },
+      { "text": "Choose audience filters (all leads, tagged leads, etc.).", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757433995/b6928c85-b054-4150-a916-c9bfb9f7a393.png" },
+      { "text": "Schedule send or send immediately.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434316/5591352a-1c25-46ce-84c0-3e62489f9f68.png" },
+      { "text": "Review and confirm → your campaign is live!", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434374/8f22ae6e-d7b4-4024-afdf-2849aaf7bb06.png" }
     ]
   },
   {
