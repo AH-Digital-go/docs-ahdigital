@@ -175,7 +175,19 @@
       "An agency manager assigns a Facebook Messenger inquiry to the right team member.",
       "A support agent reviews the full conversation history before answering a client’s new question."
     ],
-    "steps": []
+    "steps": [
+      {
+          "text": "Make sure that Gmail or Meta are connected.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png"
+      },
+      {
+          "text": "Go to Conversations page in the sidebar. You can see all messages from different channels here.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png"
+      },
+      {
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png"
+      }
+    ]
   },
   {
     "id": "connect-gmail",
