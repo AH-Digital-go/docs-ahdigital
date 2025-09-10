@@ -259,7 +259,12 @@
       "A sales team can view a client’s full communication history before making a call, ensuring conversations are relevant and informed.",
       "A marketing manager can filter clients by location or interest to launch a targeted campaign."
     ],
-    "steps": []
+    "steps": [
+      { "text": "Go to Leads/Contacts.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/22_o3kt2q.png" },
+      { "text": "Select a form to view its leads.", "image": "" },
+      { "text": "Click 'convert' to change the lead status from “New” to “Client” to move them to the Clients section.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468425/23_fp3zil.png" },
+      { "text": "Optionally assign them to a pipeline or workflow.", "image": "" }
+    ]
   },
   {
     "id": "leads",
@@ -404,7 +409,12 @@
       "An agency uses webhooks to update external reporting dashboards whenever a lead progresses in a funnel.",
       "A business leverages custom API endpoints to push booking data from the CRM into an external scheduling system."
     ],
-    "steps": []
+    "steps": [
+      { "text": "Go to Settings > API Integrations.", "image": "" },
+      { "text": "For Gmail integration, click on the Connect button and choose the account you want to link. asfor Meta integration, click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", 
+        "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" 
+      }
+    ]
   },
   {
     "id": "calendar",
