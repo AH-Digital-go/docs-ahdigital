@@ -153,7 +153,27 @@
         }
       ]
     },
-      {
+
+  {
+    "id": "connect-gmail",
+    "title": "📧 Connect Gmail Emails",
+    "steps": [
+      { "text": "Go to Integrations > Gmail.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/19_x7n9oa.png" },
+      { "text": "Click Connect Google Account → sign in to your Gmail.", "image": "" },
+      { "text": "Grant access to read/send emails.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png" },
+      { "text": "Now emails sync with your Conversations & Campaigns modules.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png" }
+    ]
+  },
+  {
+    "id": "connect-meta",
+    "title": "🔗 Connect Facebook & WhatsApp",
+    "steps": [
+      { "text": "Go to Integrations > Meta.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" },
+      { "text": "Click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468421/17_i5ztb4.png" },
+      { "text": "Once successful, your Conversations module is now synced with WhatsApp & Facebook.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png" }
+    ]
+  },
+        {
     "id": "conversations",
     "title": "💬 Conversations",
     "description": "The Conversations module provides a unified inbox where all client communications come together. Whether it’s email, SMS, WhatsApp, or Facebook messages, everything is centralized so you never lose track of important interactions.",
@@ -187,25 +207,6 @@
       {
           "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png"
       }
-    ]
-  },
-  {
-    "id": "connect-gmail",
-    "title": "📧 Connect Gmail Emails",
-    "steps": [
-      { "text": "Go to Integrations > Gmail.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/19_x7n9oa.png" },
-      { "text": "Click Connect Google Account → sign in to your Gmail.", "image": "" },
-      { "text": "Grant access to read/send emails.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png" },
-      { "text": "Now emails sync with your Conversations & Campaigns modules.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png" }
-    ]
-  },
-  {
-    "id": "connect-meta",
-    "title": "🔗 Connect Facebook & WhatsApp",
-    "steps": [
-      { "text": "Go to Integrations > Meta.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" },
-      { "text": "Click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468421/17_i5ztb4.png" },
-      { "text": "Once successful, your Conversations module is now synced with WhatsApp & Facebook.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png" }
     ]
   },
   {
