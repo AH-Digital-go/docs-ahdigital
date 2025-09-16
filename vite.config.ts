@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       "/n8n": {
-        target: "http://localhost:5678", // ton n8n local
+        target: "https://n8n-supabase-7soe.onrender.com", // ton n8n local
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/n8n/, ""), // supprime le préfixe /n8n
       },

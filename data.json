@@ -1,6 +1,6 @@
 {
-  "title": "📘 How to Use AH Digital",
-  "subtitle": "A step-by-step guide for agency owners and team members.",
+  "title": "AH Digital Docs",
+  "subtitle": "A step-by-step guide",
   "sections": [
     {
       "id": "create-account",
@@ -153,7 +153,27 @@
         }
       ]
     },
-      {
+
+  {
+    "id": "connect-gmail",
+    "title": "📧 Connect Gmail Emails",
+    "steps": [
+      { "text": "Go to Integrations > Gmail.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/19_x7n9oa.png" },
+      { "text": "Click Connect Google Account → sign in to your Gmail.", "image": "" },
+      { "text": "Grant access to read/send emails.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png" },
+      { "text": "Now emails sync with your Conversations & Campaigns modules.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png" }
+    ]
+  },
+  {
+    "id": "connect-meta",
+    "title": "🔗 Connect Facebook & WhatsApp",
+    "steps": [
+      { "text": "Go to Integrations > Meta.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" },
+      { "text": "Click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468421/17_i5ztb4.png" },
+      { "text": "Once successful, your Conversations module is now synced with WhatsApp & Facebook.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png" }
+    ]
+  },
+        {
     "id": "conversations",
     "title": "💬 Conversations",
     "description": "The Conversations module provides a unified inbox where all client communications come together. Whether it’s email, SMS, WhatsApp, or Facebook messages, everything is centralized so you never lose track of important interactions.",
@@ -175,25 +195,18 @@
       "An agency manager assigns a Facebook Messenger inquiry to the right team member.",
       "A support agent reviews the full conversation history before answering a client’s new question."
     ],
-    "steps": []
-  },
-  {
-    "id": "connect-gmail",
-    "title": "📧 Connect Gmail Emails",
     "steps": [
-      { "text": "Go to Integrations > Gmail.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/19_x7n9oa.png" },
-      { "text": "Click Connect Google Account → sign in to your Gmail.", "image": "" },
-      { "text": "Grant access to read/send emails.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png" },
-      { "text": "Now emails sync with your Conversations & Campaigns modules.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png" }
-    ]
-  },
-  {
-    "id": "connect-meta",
-    "title": "🔗 Connect Facebook & WhatsApp",
-    "steps": [
-      { "text": "Go to Integrations > Meta.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" },
-      { "text": "Click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468421/17_i5ztb4.png" },
-      { "text": "Once successful, your Conversations module is now synced with WhatsApp & Facebook.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png" }
+      {
+          "text": "Make sure that Gmail or Meta are connected.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/20_yclc5x.png"
+      },
+      {
+          "text": "Go to Conversations page in the sidebar. You can see all messages from different channels here.",
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/21_skidbm.png"
+      },
+      {
+          "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468422/18_usbihf.png"
+      }
     ]
   },
   {
@@ -247,7 +260,12 @@
       "A sales team can view a client’s full communication history before making a call, ensuring conversations are relevant and informed.",
       "A marketing manager can filter clients by location or interest to launch a targeted campaign."
     ],
-    "steps": []
+    "steps": [
+      { "text": "Go to Leads/Contacts.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468423/22_o3kt2q.png" },
+      { "text": "Select a form to view its leads.", "image": "" },
+      { "text": "Click 'convert' to change the lead status from “New” to “Client” to move them to the Clients section.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468425/23_fp3zil.png" },
+      { "text": "Optionally assign them to a pipeline or workflow.", "image": "" }
+    ]
   },
   {
     "id": "leads",
@@ -335,11 +353,11 @@
     ],
     "steps": [
       { "text": "Go to Email Campaigns.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468428/27_zarpy2.png" },
-      { "text": "Click New Campaign.", "image": "" },
-      { "text": "Choose audience filters (all leads, tagged leads, etc.).", "image": "" },
-      { "text": "Write your email (or use a saved template).", "image": "" },
-      { "text": "Schedule send or send immediately.", "image": "" },
-      { "text": "Track opens, clicks, and conversions in analytics.", "image": "" }
+      { "text": "Click New Campaign and set a name and Subject of the Emails to be sent", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434094/1fa5bd10-9187-43f3-8e84-f000342452b3.png" },
+      { "text": "Choose your Email Template,you can either select an existing email template that you've created on the Email page, or create a new one either from the visual editor or from the HTML editor.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434011/3f74a203-104f-4197-bf03-9800e89ee9db.png" },
+      { "text": "Choose audience filters (all leads, tagged leads, etc.).", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757433995/b6928c85-b054-4150-a916-c9bfb9f7a393.png" },
+      { "text": "Schedule send or send immediately.", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434316/5591352a-1c25-46ce-84c0-3e62489f9f68.png" },
+      { "text": "Review and confirm → your campaign is live!", "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1757434374/8f22ae6e-d7b4-4024-afdf-2849aaf7bb06.png" }
     ]
   },
   {
@@ -392,7 +410,12 @@
       "An agency uses webhooks to update external reporting dashboards whenever a lead progresses in a funnel.",
       "A business leverages custom API endpoints to push booking data from the CRM into an external scheduling system."
     ],
-    "steps": []
+    "steps": [
+      { "text": "Go to Settings > API Integrations.", "image": "" },
+      { "text": "For Gmail integration, click on the Connect button and choose the account you want to link. asfor Meta integration, click on Connect button and choose the page(s) you want your subaccount to be affiliated to.", 
+        "image": "https://res.cloudinary.com/dfdshe39z/image/upload/v1756468419/16_uhtmhr.png" 
+      }
+    ]
   },
   {
     "id": "calendar",

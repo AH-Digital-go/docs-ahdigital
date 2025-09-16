@@ -22,8 +22,6 @@ export const DocsSidebar = ({ activeSection, onSectionChange }: DocsSidebarProps
     if (!query) return sections;
     return sections.filter(section =>
       section.title.toLowerCase().includes(query.toLowerCase())
-
-  
     );
   };
 
