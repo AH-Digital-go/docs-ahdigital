@@ -59,7 +59,7 @@ class GoogleTranslateService {
           this.translateElement = new window.google.translate.TranslateElement({
             pageLanguage: 'en',
             includedLanguages: 'en,ar,fr',
-            layout: 'SIMPLE',
+            layout: "SIMPLE",
             autoDisplay: false
           }, 'google_translate_element');
           
@@ -334,12 +334,33 @@ const GoogleTranslateButton: React.FC = () => {
       ) : (
         <button
           onClick={togglePanel}
-          className="bg-white dark:bg-gray-800 shadow-lg rounded-full p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 hover:scale-110 transition-all duration-200"
+          className="bg-white dark:bg-gray-800 shadow-lg rounded-lg px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:scale-105 transition-all duration-200 flex items-center gap-2 border border-gray-200 dark:border-gray-600"
           aria-label="Open translator"
           title="Translate Page"
           type="button"
         >
-          <span className="text-xl">🌐</span>
+          <svg 
+            width="20" 
+            height="20" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            className="text-blue-600 dark:text-blue-400"
+          >
+            <path d="m5 8 6 6"></path>
+            <path d="m4 14 6-6 2-3"></path>
+            <path d="M2 5h12"></path>
+            <path d="M7 2h1"></path>
+            <path d="m22 22-5-10-5 10"></path>
+            <path d="M14 18h6"></path>
+          </svg>
+          <div className="flex flex-col items-start">
+            <span className="text-sm font-medium">Translate</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">EN • AR • FR</span>
+          </div>
         </button>
       )}
     </div>
