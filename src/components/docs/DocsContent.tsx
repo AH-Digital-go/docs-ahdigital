@@ -3,7 +3,6 @@ import {
   HelpCircle,
   Shield,
   Lightbulb,
-  ArrowRight,
   Star,
   MessageCircle
 } from "lucide-react";
@@ -28,8 +27,8 @@ const FeatureCard = ({ icon: Icon, title, description }: {
   title: string;
   description: string;
 }) => (
-  <div className=" group p-2 bg-gradient-card border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
-    <div className="flex items-center gap-3 ">
+  <div className="group p-2 bg-gradient-card border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+    <div className="flex items-center gap-3">
       <div className="p-2 rounded-lg bg-blue-600/10">
         <Icon className="w-5 h-5 text-blue-600" />
       </div>
@@ -82,6 +81,33 @@ const InfoBox = ({ type = "info", children }: { type?: "info" | "warning" | "tip
   );
 };
 
+// New VideoPlayer component to handle Google Drive video embedding
+const VideoPlayer = ({ videoUrl }: { videoUrl: string }) => {
+  // Convert Google Drive link to embeddable format
+  const getEmbedUrl = (url: string) => {
+    const fileIdMatch = url.match(/\/d\/(.+?)\/view/);
+    if (fileIdMatch && fileIdMatch[1]) {
+      return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`;
+    }
+    return url; // Fallback to original URL if parsing fails
+  };
+
+  return (
+    <div className="my-8">
+      <h2 className="text-lg font-semibold mb-4">Video Tutorial</h2>
+      <div className="relative aspect-video">
+        <iframe
+          src={getEmbedUrl(videoUrl)}
+          className="w-full h-full rounded-lg border border-gray-200"
+          allow="autoplay"
+          allowFullScreen
+          title="Tutorial Video"
+        ></iframe>
+      </div>
+    </div>
+  );
+};
+
 const sections = data.sections;
 
 const getBreadcrumbItems = (activeSection: string) => {
@@ -98,92 +124,94 @@ export const DocsContent = ({ activeSection, onSectionChange }: DocsContentProps
     if (!section) {
       return (
         <ContentSection>
-  <h1>{data.title}</h1>
-  <p className="text-xl text-gray-600 mb-6">{data.subtitle}</p>
-  <div className="text-left py-12 space-y-8">
-    <p>
-      Welcome to <strong>AH Digital 🚀</strong>
-      <br />
-      <br />
-      Your all-in-one platform designed to help agencies, teams, and businesses
-      <strong> streamline operations, connect with customers, and grow smarter</strong>.  
-      Whether you’re managing leads, running campaigns, or building client
-      experiences, our tools are built to save you time, reduce complexity, and
-      unlock growth.
-    </p>
+          <h1>{data.title}</h1>
+          <p className="text-xl text-gray-600 mb-6">{data.subtitle}</p>
+          <div className="text-left py-12 space-y-8">
+            <p>
+              Welcome to <strong>AH Digital 🚀</strong>
+              <br />
+              <br />
+              Your all-in-one platform designed to help agencies, teams, and businesses
+              <strong> streamline operations, connect with customers, and grow smarter</strong>.  
+              Whether you’re managing leads, running campaigns, or building client
+              experiences, our tools are built to save you time, reduce complexity, and
+              unlock growth.
+            </p>
 
-    <div>
-      <h3 className="text-2xl font-semibold mb-4">🌟 What We Offer</h3>
-      <ul className="list-disc list-inside space-y-2">
-        <li>
-          <strong>Centralized Workspace</strong> — Manage agencies, subaccounts,
-          users, and permissions in a single, secure environment.
-        </li>
-        <li>
-          <strong>Conversations Hub</strong> — Keep all client communications
-          (WhatsApp, SMS, email, and more) in one place — no more switching tabs.
-        </li>
-        <li>
-          <strong>Calendars & Bookings</strong> — Simplify scheduling with smart
-          calendars, appointment tracking, and automated reminders.
-        </li>
-        <li>
-          <strong>Reputation Management</strong> — Collect reviews, monitor
-          feedback, and showcase trust where it matters most.
-        </li>
-        <li>
-          <strong>Landing Pages & Funnels</strong> — Drag-and-drop builder to
-          launch high-converting landing pages, capture leads, and guide them
-          through funnels.
-        </li>
-        <li>
-          <strong>Forms & Surveys</strong> — Create custom forms to capture data,
-          qualify leads, and run interactive campaigns.
-        </li>
-        <li>
-          <strong>Workflows & Automations</strong> — Automate repetitive tasks
-          with visual workflows — focus on growth, not manual busywork.
-        </li>
-        <li>
-          <strong>Email Campaigns</strong> — Build, schedule, and track engaging
-          campaigns with detailed analytics.
-        </li>
-        <li>
-          <strong>Knowledge Base & AI Chatbot</strong> — Offer 24/7 support with
-          self-service knowledge articles and AI-powered chat.
-        </li>
-      </ul>
-    </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">🌟 What We Offer</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong>Centralized Workspace</strong> — Manage agencies, subaccounts,
+                  users, and permissions in a single, secure environment.
+                </li>
+                <li>
+                  <strong>Conversations Hub</strong> — Keep all client communications
+                  (WhatsApp, SMS, email, and more) in one place — no more switching tabs.
+                </li>
+                <li>
+                  <strong>Calendars & Bookings</strong> — Simplify scheduling with smart
+                  calendars, appointment tracking, and automated reminders.
+                </li>
+                <li>
+                  <strong>Reputation Management</strong> — Collect reviews, monitor
+                  feedback, and showcase trust where it matters most.
+                </li>
+                <li>
+                  <strong>Landing Pages & Funnels</strong> — Drag-and-drop builder to
+                  launch high-converting landing pages, capture leads, and guide them
+                  through funnels.
+                </li>
+                <li>
+                  <strong>Forms & Surveys</strong> — Create custom forms to capture data,
+                  qualify leads, and run interactive campaigns.
+                </li>
+                <li>
+                  <strong>Workflows & Automations</strong> — Automate repetitive tasks
+                  with visual workflows — focus on growth, not manual busywork.
+                </li>
+                <li>
+                  <strong>Email Campaigns</strong> — Build, schedule, and track engaging
+                  campaigns with detailed analytics.
+                </li>
+                <li>
+                  <strong>Knowledge Base & AI Chatbot</strong> — Offer 24/7 support with
+                  self-service knowledge articles and AI-powered chat.
+                </li>
+              </ul>
+            </div>
 
-    <div>
-      <h3 className="text-2xl font-semibold mb-4">💡 Why Choose AH Digital?</h3>
-      <ul className="list-disc list-inside space-y-2">
-        <li>Scales with you — from solo entrepreneurs to large agencies.</li>
-        <li>All-in-one solution — reduce costs and tool overload.</li>
-        <li>Collaboration-friendly — roles, permissions, and shared workspaces.</li>
-        <li>Data-driven decisions — built-in tracking, analytics, and reporting.</li>
-        <li>Secure and reliable — enterprise-grade security at every layer.</li>
-      </ul>
-    </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">💡 Why Choose AH Digital?</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Scales with you — from solo entrepreneurs to large agencies.</li>
+                <li>All-in-one solution — reduce costs and tool overload.</li>
+                <li>Collaboration-friendly — roles, permissions, and shared workspaces.</li>
+                <li>Data-driven decisions — built-in tracking, analytics, and reporting.</li>
+                <li>Secure and reliable — enterprise-grade security at every layer.</li>
+              </ul>
+            </div>
 
-    <div>
-      <h3 className="text-2xl font-semibold mb-4">🚀 Next Steps</h3>
-      <p>
-        Get started with our <a href="#" className="text-blue-600 underline">Quick Start Guide</a>.
-      </p>
-    </div>
-  </div>
-</ContentSection>
-
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">🚀 Next Steps</h3>
+              <p>
+                Get started with our <a href="#" className="text-blue-600 underline">Quick Start Guide</a>.
+              </p>
+            </div>
+          </div>
+        </ContentSection>
       );
     }
 
     return (
       <ContentSection>
-        <h1 className="text-md ">{section.title}</h1>
+        <h1 className="text-md">{section.title}</h1>
         {section.description && (
           <p className="text-md text-gray-600 mb-6">{section.description}</p>
         )}
+
+        {/* Render video if available */}
+        {section.video && <VideoPlayer videoUrl={section.video} />}
 
         {section.features && (
           <div className="mb-8 mt-4">
